@@ -8,9 +8,9 @@ def exaggerate(sentence):
         "dislike": "hate"
     }
 
-    all_words = sentence.split()
-    for word in all_words:
-        word = word.replace(",", "")
-    return all_words
+    for key, value in replacements.items():
+        sentence = sentence.replace(key, value)
+
+    return sentence
 
 print(exaggerate(given_sentence))
