@@ -4,7 +4,6 @@ dict1 = {
     "three": 3
 }
 
-k = list(dict.keys)
-v = dict.values
-print(k)
-# print(list(v))
+list1 = list(dict1.keys())
+list2 = list(dict1.values())
+print(list1, list2)
