@@ -6,7 +6,7 @@ function repeatedNumber(arr, number) {
     for (let i = 0; i < arr.length - 1; i++) {
         console.log(`Current: ${arr[i]} -- Next: ${arr[i + 1]}`)
 
-        if (arr[i] === arr[i - 1]) {
+        if (arr[i] === arr[i + 1]) {
             nextTo = true
             break
         } 
