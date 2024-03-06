@@ -1,14 +1,28 @@
-let grid = ""
+function generatePascalsTriangle(nRows) {
+    let triangle = [];
 
-for (let y = 0; y < 8; y++) { // columns ↕️
-    for (let x = 0; x < 8; x++) { // rows ↔️
-        if ((x + y) % 2 == 0) {             // if x + y is even, note: x + y is the sum of the coordinates.
-            grid += "⬛️"
-        } else {
-            grid += "⬜️"
+    for (let row = 0; row < nRows; row++) {
+        triangle[row] = [];
+        triangle[row][0] = 1; 
+
+        for (let col = 1; col < row; col++) {
+            triangle[row][col] = triangle[row - 1][col - 1] + triangle[row - 1][col];
+        }
+
+        if (row > 0) {
+            triangle[row][row] = 1;
         }
     }
-    grid += "\n"
+
+    return triangle;
+}
+  
+function printPascalsTriangle(triangle) {
+    for (let row of triangle) {
+        console.log(row.join(' '));
+    }
 }
 
-console.log(grid)
+
+let pascalsTriangle = generatePascalsTriangle(7);
+printPascalsTriangle(pascalsTriangle);
