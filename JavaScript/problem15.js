@@ -1,28 +1,13 @@
-function generatePascalsTriangle(nRows) {
-    let triangle = [];
-
-    for (let row = 0; row < nRows; row++) {
-        triangle[row] = [];
-        triangle[row][0] = 1; 
-
-        for (let col = 1; col < row; col++) {
-            triangle[row][col] = triangle[row - 1][col - 1] + triangle[row - 1][col];
+function generatePascalsTriangle(n) {
+    for (let row = 0; row < n; row++) {
+        let number = 1; // The first number in a row is always 1
+        let output = ""; // This is where we'll build the string for the row
+        for (let col = 0; col <= row; col++) {
+            output += number + " "; // Add the current number to the output string
+            number = number * (row - col) / (col + 1); // Calculate the next number in the row
         }
-
-        if (row > 0) {
-            triangle[row][row] = 1;
-        }
-    }
-
-    return triangle;
-}
-  
-function printPascalsTriangle(triangle) {
-    for (let row of triangle) {
-        console.log(row.join(' '));
+        console.log(output.trim()); // Print the row and remove any trailing space
     }
 }
 
-
-let pascalsTriangle = generatePascalsTriangle(7);
-printPascalsTriangle(pascalsTriangle);
+generatePascalsTriangle(7);
